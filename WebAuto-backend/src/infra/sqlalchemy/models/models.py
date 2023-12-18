@@ -10,6 +10,7 @@ class Usuario(Base):
     nome = Column(String)
     senha = Column(String)
     telefone = Column(String)
+    email: Column(String)
 
     carros = relationship('Carro', back_populates='usuario')
     pedidos = relationship('Pedido', back_populates='usuario')

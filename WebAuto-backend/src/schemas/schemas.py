@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 
 
@@ -16,6 +16,7 @@ class Usuario(BaseModel):
     nome: str
     telefone: str
     senha: str
+    email: EmailStr
     carros: List[CarroSimples] = []
 
     class Config:
@@ -25,7 +26,7 @@ class Usuario(BaseModel):
 class UsuarioSimples(BaseModel):
     id: Optional[int] = None
     nome: str
-    telefone: str
+    email: EmailStr
 
     class Config:
         orm_mode = True
@@ -33,7 +34,7 @@ class UsuarioSimples(BaseModel):
 
 class LoginData(BaseModel):
     senha: str
-    telefone: str
+    email: EmailStr
 
 
 class LoginSucesso(BaseModel):
